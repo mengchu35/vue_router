@@ -40,10 +40,10 @@ const routes = [
     name: 'NotFound',
     component: NotFound,
   },
-  {
-    path: '*',
-    redirect: '/404',
-  }
+  //{
+  //  path: '*',
+  //  redirect: '/404',
+  //}
 ]
 
 const router = new VueRouter({
@@ -51,5 +51,13 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  if (!to.matched.length) {
+    next('/404');
+  } else {
+    next();
+  }
+});
 
 export default router
