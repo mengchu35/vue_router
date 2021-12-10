@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Travels from '../views/Travels.vue'
+import NotFound from '../views/NotFound.vue'
 import Rose from '../components/Rose.vue'
 import Hydrangea from '../components/Hydrangea.vue'
 import Tulipa from '../components/Tulipa.vue'
@@ -33,6 +34,15 @@ const routes = [
       { path: 'hydrangea', name: 'hydrangea', component: Hydrangea },
       { path: 'tulipa', name: 'tulipa', component: Tulipa },
     ],
+  },
+  {
+    path: '/404',
+    name: 'NotFound',
+    component: NotFound,
+  },
+  {
+    path: '*',
+    redirect: '/404',
   }
 ]
 
