@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Travels from '../views/Travels.vue'
+import Rose from '../components/Rose.vue'
+import Hydrangea from '../components/Hydrangea.vue'
+import Tulipa from '../components/Tulipa.vue'
 
 Vue.use(VueRouter)
 
@@ -24,7 +27,12 @@ const routes = [
   {
     path: '/travels',
     name: 'Travels',
-    component: Travels
+    component: Travels,
+    children: [
+      { path: 'rose', name: 'rose', component: Rose },
+      { path: 'hydrangea', name: 'hydrangea', component: Hydrangea },
+      { path: 'tulipa', name: 'tulipa', component: Tulipa },
+    ],
   }
 ]
 
